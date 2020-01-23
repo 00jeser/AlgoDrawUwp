@@ -10,9 +10,9 @@
     >
 
     <Grid>
-        <Button Content="Button" Margin="10,0,0,10" VerticalAlignment="Bottom" Height="42" Width="131" />
+        <Button Content="Button" Margin="0,0,1359,10" VerticalAlignment="Bottom" Height="42" Width="131" HorizontalAlignment="Right" Click="Button_Click" />
 
-        <Custom:MassViev HorizontalAlignment="Stretch" Margin="140,0,0,0" VerticalAlignment="Stretch"/>
+        <Custom:MassViev HorizontalAlignment="Stretch" Margin="140,0,0,0" VerticalAlignment="Stretch" Name="massView"/>
 
     </Grid>
 </Page>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -26,6 +27,21 @@ namespace AlgoDrawUwp.Pages
         public RevertAlgo()
         {
             this.InitializeComponent();
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            massView.Array = new List<float>();
+            //var t = new Thread(revert);
+            //t.Start((object)massView);
+        }
+
+        private void revert(object obj)
+        {
+            var mass = (obj as MassViev).Array;
+            (obj as MassViev).Array = new List<float>() { 0, 1, 2, 3, 6, 4, 5 };
+            Thread.Sleep(1000);
+            (obj as MassViev).Array = new List<float>() { 0, 1, 2, 3, 4, 5, 6 };
         }
     }
 }
