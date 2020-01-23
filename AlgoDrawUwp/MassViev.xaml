@@ -9,6 +9,17 @@
     d:DesignHeight="200"
     d:DesignWidth="300">
     <Grid>
-        <ListView/>
+        <ListView x:Name="view">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ListViewItem Height="30">
+                        <Grid VerticalAlignment="Stretch">
+                            <Rectangle Width="{Binding Path=value}" Fill="Blue" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                            <TextBlock Text="{Binding Path=value}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                        </Grid>
+                    </ListViewItem>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>

@@ -22,6 +22,7 @@ namespace AlgoDrawUwp.Pages
     /// </summary>
     public sealed partial class RevertAlgo : Page
     {
+
         public RevertAlgo()
         {
             this.InitializeComponent();
