@@ -12,10 +12,7 @@
         <SplitView DisplayMode="CompactOverlay" IsPaneOpen="True">
             <SplitView.Pane>
                 <Grid>
-                    <ListView SelectionChanged="ListView_SelectionChanged"> 
-                        <ListViewItem Content="переворот" Tag="0"/>
-                        <ListViewItem Content="123"/>
-                        <ListViewItem Content="123"/>
+                    <ListView SelectionChanged="ListView_SelectionChanged" x:Name="AlgoList"> 
                     </ListView>
                 </Grid>
             </SplitView.Pane>

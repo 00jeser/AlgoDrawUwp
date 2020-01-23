@@ -13,24 +13,18 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
+// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace AlgoDrawUwp
+namespace AlgoDrawUwp.Pages
 {
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class RevertAlgo : Page
     {
-        public MainPage()
+        public RevertAlgo()
         {
             this.InitializeComponent();
-            AlgoList.Items.Add(new ListViewItem() { Content = "переворот", Tag = new Pages.RevertAlgo() });
-        }
-
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            AlgoPage.Content = ((sender as ListView).SelectedItem as ListViewItem).Tag;
         }
     }
 }
