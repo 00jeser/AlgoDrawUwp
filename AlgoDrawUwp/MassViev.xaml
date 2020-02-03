@@ -14,7 +14,7 @@
                 <DataTemplate>
                     <ListViewItem Height="30">
                         <Grid VerticalAlignment="Stretch">
-                            <Rectangle Width="{Binding Path=value}" Fill="Blue" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
+                            <Rectangle Width="{Binding Path=value}" Fill="{Binding Path=color}" HorizontalAlignment="Left" VerticalAlignment="Stretch"/>
                             <TextBlock Text="{Binding Path=value}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                         </Grid>
                     </ListViewItem>

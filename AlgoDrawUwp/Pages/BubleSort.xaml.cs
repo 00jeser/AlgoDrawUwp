@@ -13,25 +13,24 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x419
+// Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace AlgoDrawUwp
+namespace AlgoDrawUwp.Pages
 {
     /// <summary>
     /// Пустая страница, которую можно использовать саму по себе или для перехода внутри фрейма.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class BubleSort : Page
     {
-        public MainPage()
+        public BubleSort()
         {
             this.InitializeComponent();
-            AlgoList.Items.Add(new ListViewItem() { Content = "переворот", Tag = new Pages.RevertAlgo() });
-            AlgoList.Items.Add(new ListViewItem() { Content = "сотировка пузырьком", Tag = new Pages.BubleSort() });
+            code.Text = "mass = [ 0, 20, 100, 35, 84, 99 ]\nfor i in range(len(mass) // 2):\n\tmass[i], mass[-i - 1] = mass[-i - 1], mass[i]\nprint(mass)";
         }
 
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AlgoPage.Content = ((sender as ListView).SelectedItem as ListViewItem).Tag;
+
         }
     }
 }

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,25 +24,42 @@ namespace AlgoDrawUwp.Pages
     /// </summary>
     public sealed partial class RevertAlgo : Page
     {
+        public List<float> MassHowNeedPrint = new List<float>() { 0f, 20f, 100f, 35f, 84f, 99f };
+        private DispatcherTimer timer;
 
         public RevertAlgo()
         {
             this.InitializeComponent();
+            code.Text = "mass = [ 0, 20, 100, 35, 84, 99 ]\nfor i in range(len(mass) // 2):\n\tmass[i], mass[-i - 1] = mass[-i - 1], mass[i]\nprint(mass)";
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            massView.Array = new List<float>();
+            MassHowNeedPrint = new List<float>() { 0f, 20f, 100f, 35f, 84f, 99f };
+            timer?.Stop();
+            mass.Array = new List<float>();
             //var t = new Thread(revert);
-            //t.Start((object)massView);
+            //t.Start((object)mass.Array);
+            timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 0, 0, (int)timeSlider.Value) }; // 1 секунда
+            a = 0;
+            timer.Tick += revert;
+            timer.Tick += (object senderr, object ee) => a++;
+            mass.Array = MassHowNeedPrint;
+            timer.Start();
         }
 
-        private void revert(object obj)
+        int a = 0;
+
+        private void revert(object sender, object e)
         {
-            var mass = (obj as MassViev).Array;
-            (obj as MassViev).Array = new List<float>() { 0, 1, 2, 3, 6, 4, 5 };
-            Thread.Sleep(1000);
-            (obj as MassViev).Array = new List<float>() { 0, 1, 2, 3, 4, 5, 6 };
+            if (a < 3)
+            {
+                var tmp = MassHowNeedPrint[a];
+                MassHowNeedPrint[a] = MassHowNeedPrint[MassHowNeedPrint.Count - a - 1];
+                MassHowNeedPrint[MassHowNeedPrint.Count - a - 1] = tmp;
+                mass.Array = MassHowNeedPrint;
+            }
         }
     }
 }

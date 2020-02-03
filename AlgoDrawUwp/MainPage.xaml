@@ -12,7 +12,10 @@
         <SplitView DisplayMode="CompactOverlay" IsPaneOpen="True">
             <SplitView.Pane>
                 <Grid>
-                    <ListView SelectionChanged="ListView_SelectionChanged" x:Name="AlgoList"> 
+                    <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" HorizontalContentAlignment="Left">
+                        <SymbolIcon Symbol="AlignCenter"/>
+                    </Button>
+                    <ListView SelectionChanged="ListView_SelectionChanged" x:Name="AlgoList" Margin="0,50,0,0"> 
                     </ListView>
                 </Grid>
             </SplitView.Pane>

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -13,8 +14,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Xaml.Shapes;
-
-// Документацию по шаблону элемента "Пользовательский элемент управления" см. по адресу https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace AlgoDrawUwp
 {
@@ -26,6 +25,7 @@ namespace AlgoDrawUwp
             get { return _array; }
             set
             {
+                view.Items.Clear();
                 _array = value;
                 foreach (float f in value)
                     view.Items.Add(new ValueForArray(f));
@@ -34,12 +34,12 @@ namespace AlgoDrawUwp
         public MassViev()
         {
             this.InitializeComponent();
-            Array = new List<float>() { 100, 10, 20 };
         }
     }
 }
 public class ValueForArray
 {
     public float value { get; set; }
+    public SolidColorBrush color => new SolidColorBrush(Color.FromArgb(255, (byte)value, 0, (byte)value));
     public ValueForArray(float a) { value = a; }
 }
