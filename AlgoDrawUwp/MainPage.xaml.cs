@@ -33,5 +33,10 @@ namespace AlgoDrawUwp
         {
             AlgoPage.Content = ((sender as ListView).SelectedItem as ListViewItem).Tag;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            splitV.IsPaneOpen = !splitV.IsPaneOpen;
+        }
     }
 }

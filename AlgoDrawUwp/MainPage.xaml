@@ -9,10 +9,10 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <SplitView DisplayMode="CompactOverlay" IsPaneOpen="True">
+        <SplitView DisplayMode="CompactOverlay" IsPaneOpen="True" x:Name="splitV">
             <SplitView.Pane>
                 <Grid>
-                    <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" HorizontalContentAlignment="Left">
+                    <Button HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="50" HorizontalContentAlignment="Left" Click="Button_Click">
                         <SymbolIcon Symbol="AlignCenter"/>
                     </Button>
                     <ListView SelectionChanged="ListView_SelectionChanged" x:Name="AlgoList" Margin="0,50,0,0"> 
